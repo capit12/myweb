@@ -1,0 +1,137 @@
+/* --- Variables y Fondo Animado --- */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    /* Fondo con un degradado oscuro más elegante */
+    background: linear-gradient(135deg, #11111b 0%, #181825 100%);
+    background-attachment: fixed;
+    color: #cdd6f4;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal --- */
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(30, 30, 46, 0.85); /* Ligeramente transparente */
+    backdrop-filter: blur(10px); /* Efecto cristal */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Animaciones de Entrada (Keyframes) --- */
+@keyframes aparecerDesdeArriba {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecerDesdeAbajo {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Perfil --- */
+.perfil {
+    text-align: center;
+    border-bottom: 2px solid #313244;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    animation: aparecerDesdeArriba 1s ease-out forwards; /* Aplicando animación */
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #89b4fa;
+    /* Brillo inicial */
+    box-shadow: 0 0 15px rgba(137, 180, 250, 0.4);
+    transition: all 0.4s ease;
+}
+
+/* Efecto al pasar el mouse por la foto */
+.foto-perfil:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 0 25px rgba(137, 180, 250, 0.8);
+    border-color: #b4befe;
+}
+
+h1 {
+    color: #89b4fa;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.lema {
+    font-style: italic;
+    color: #a6adc8;
+}
+
+/* --- Mis Gustos --- */
+.gustos {
+    animation: aparecerDesdeAbajo 1s ease-out 0.3s forwards; /* Entra un poco después */
+    opacity: 0; /* Empieza invisible para la animación */
+}
+
+.gustos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.gustos li {
+    background-color: #313244;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 5px solid #cba6f7;
+    transition: all 0.3s ease; /* Transición suave */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Efecto de empuje al pasar el mouse por la lista */
+.gustos li:hover {
+    transform: translateX(10px);
+    background-color: #45475a;
+    border-left-color: #f5c2e7;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* --- Muro de Películas --- */
+.muro {
+    animation: aparecerDesdeAbajo 1s ease-out 0.6s forwards; /* Entra al final */
+    opacity: 0;
+}
+
+h2 {
+    color: #cba6f7;
+    margin-top: 30px;
+    border-bottom: 1px dashed #45475a;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.grid-portadas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+}
+
+/* Efecto de salto y brillo al pasar el mouse por las películas */
+.tarjeta img:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(203, 166, 247, 0.4);
+    cursor: pointer;
+    z-index: 10;
+}
